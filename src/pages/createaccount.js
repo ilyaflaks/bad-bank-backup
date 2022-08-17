@@ -6,12 +6,13 @@ import { UserProvider } from "./context";
 function CreateAccount() {
   return <Account />;
 }
+
 function Account() {
   const { user, setUser } = useUserContext();
-  console.log("In Account. user is: ", user);
+  //console.log("In Account. user is: ", user);
 
   function handle(data) {
-    console.log("handle from createaccount called");
+    //console.log("handle from createaccount called");
     setUser([
       ...user,
       {
@@ -24,6 +25,9 @@ function Account() {
     return true;
   }
 
+  const successMessage =
+    "Thank you for creating an account with BadBank! Here's $100 just for signing up. This is just on of the many benefits of doing business with BadBank.";
+
   return (
     <div>
       <BankForm
@@ -31,6 +35,9 @@ function Account() {
         label="Create Account"
         handle={handle}
         successButton="Add another account"
+        successMessage={successMessage}
+        secondButtonText="Log In"
+        bool="true"
       />
     </div>
   );

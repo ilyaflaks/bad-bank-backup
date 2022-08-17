@@ -24,31 +24,10 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  //const { user, setUser } = useUserContext(UserContext);
-  // const context = useUserContext(UserContext);
-
   return (
     <div>
       <Router>
         <UserProvider>
-          {/* <UserContext.Provider
-          value={{
-            user: [
-              {
-                name: "abel",
-                email: "abel@mit.edu",
-                password: "secret",
-                balance: 100,
-              },
-              {
-                name: "Peter",
-                email: "peter@uic.edu",
-                password: "qwerty",
-                balance: 5,
-              },
-            ],
-          }}
-        > */}
           <NaviBar />
           <Routes>
             <Route index element={<Homepage />} />

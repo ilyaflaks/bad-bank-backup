@@ -10,8 +10,8 @@ export const useUserContext = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState([
-    { name: "abel", email: "abel@mit.edu", password: "secret", balance: 100 },
-    { name: "Peter", email: "peter@uic.edu", password: "qwerty", balance: 5 },
+    { name: "abel", email: "abel@mit.edu", password: "secret01", balance: 100 },
+    { name: "Peter", email: "peter@uic.edu", password: "qwertyui", balance: 5 },
   ]);
 
   return (

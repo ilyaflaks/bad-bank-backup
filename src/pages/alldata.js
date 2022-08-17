@@ -6,19 +6,13 @@ import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 function Alldata() {
   return (
     <div>
-      {/* <UserProvider> */}
       <UserAccountData />
-      {/* </UserProvider> */}
     </div>
   );
 }
 
 function UserAccountData() {
   const { user, setUser } = useUserContext();
-  // let stringyUser = JSON.stringify(user);
-  // console.log("user 0 " + user[0]);
-  // console.log("user 0 name " + user[0].name);
-  // console.log("we are in allData, userContext is: " + stringyUser);
 
   const context = useContext(UserContext);
   console.log("inside all data");

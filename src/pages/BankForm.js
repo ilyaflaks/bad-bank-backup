@@ -45,7 +45,16 @@ function validatePassword(password) {
   }
 }
 
-function BankForm({ bgcolor, label, handle, successButton }) {
+function BankForm({
+  bgcolor,
+  label,
+  handle,
+  successButton,
+  successMessage,
+  secondButtonText,
+  bool,
+  loginError,
+}) {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
@@ -77,7 +86,6 @@ function BankForm({ bgcolor, label, handle, successButton }) {
     const isValidPassword = validatePassword(password);
 
     if (isValidName && isValidEmail && isValidPassword) {
-      console.log("conditions met, isError is false");
       setIsError(false);
       handle({ name, email, password });
       setShow(false);
@@ -97,6 +105,7 @@ function BankForm({ bgcolor, label, handle, successButton }) {
     setPassword("");
     setShow(true);
   }
+
   return (
     <div>
       <Card
@@ -162,14 +171,11 @@ function BankForm({ bgcolor, label, handle, successButton }) {
             </div>
           ) : (
             <div>
-              <h3>
-                Thank you for creating an account with BadBank! Here's $100 just
-                for signing up. This is just on of the many benefits of doing
-                business with BadBank.
-              </h3>
+              <h3>{successMessage}</h3>
               <br />
             </div>
           )}
+          {/* {loginError ? <div>Account not found</div> : <p> </p>} */}
           {show && buttonDisabled ? (
             <Button
               className="btn btn-dark"
@@ -196,54 +202,25 @@ function BankForm({ bgcolor, label, handle, successButton }) {
               >
                 {successButton}
               </Button>
-              <Button>
-                <NavItem
-                  tag={Link}
-                  to="/login"
-                  style={{
-                    textDecoration: "none",
-                    color: "white",
-                    margin: "2px",
-                  }}
-                >
-                  Log In
-                </NavItem>
-              </Button>
+              {bool ? (
+                <Button>
+                  <NavItem
+                    tag={Link}
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      margin: "2px",
+                    }}
+                  >
+                    {secondButtonText}
+                  </NavItem>
+                </Button>
+              ) : (
+                <p> </p>
+              )}
             </div>
           )}
-
-          {/* {show ? (
-            <Button
-              type="submit"
-              className="btn btn-dark"
-              onClick={handleCreate}
-            >
-              {label}
-            </Button>
-          ) : (
-            <div>
-              <Button
-                type="submit"
-                className="btn btn-dark"
-                onClick={clearForm}
-              >
-                {successButton}
-              </Button>
-              <Button>
-                <NavItem
-                  tag={Link}
-                  to="/login"
-                  style={{
-                    textDecoration: "none",
-                    color: "white",
-                    margin: "2px",
-                  }}
-                >
-                  Log In
-                </NavItem>
-              </Button>
-            </div>
-          )} */}
         </CardBody>
       </Card>
     </div>
@@ -251,37 +228,3 @@ function BankForm({ bgcolor, label, handle, successButton }) {
 }
 
 export default BankForm;
-
-/////BACKUP BUTTONS
-// {show ? (
-//   <Button
-//     type="submit"
-//     className="btn btn-dark"
-//     onClick={handleCreate}
-//   >
-//     {label}
-//   </Button>
-// ) : (
-//   <div>
-//     <Button
-//       type="submit"
-//       className="btn btn-dark"
-//       onClick={clearForm}
-//     >
-//       {successButton}
-//     </Button>
-//     <Button>
-//       <NavItem
-//         tag={Link}
-//         to="/login"
-//         style={{
-//           textDecoration: "none",
-//           color: "white",
-//           margin: "2px",
-//         }}
-//       >
-//         Log In
-//       </NavItem>
-//     </Button>
-//   </div>
-// )}
