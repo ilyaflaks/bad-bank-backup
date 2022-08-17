@@ -30,6 +30,24 @@ function Balance() {
   //  console.log("we are in balance, user from ctxt is: " + user);
   ///////
   console.log("userLoggedIn: " + userLoggedIn);
+  let userLoggedInName = "";
+  let userLoggedInEmail = "";
+  let userLoggedInPassword = "";
+  let userLoggedInBalance = "";
+
+  if (userLoggedIn >= 0) {
+    userLoggedInName = user[userLoggedIn].name;
+    userLoggedInEmail = user[userLoggedIn].email;
+    userLoggedInPassword = user[userLoggedIn].password;
+    userLoggedInBalance = user[userLoggedIn].balance;
+    console.log(
+      userLoggedInName,
+      " ",
+      userLoggedInEmail,
+      " ",
+      userLoggedInPassword
+    );
+  }
   // const { userLoggedIn, setUserLoggedIn } = useLoggedInContext(LoggedInContext);
   // console.log("userLoggedIn: ", userLoggedIn);
 
@@ -44,9 +62,9 @@ function Balance() {
         }}
       >
         <CardTitle>Balance</CardTitle>
-        <CardSubtitle>{name}</CardSubtitle>
+        {/* <CardSubtitle>{userLoggedInName}</CardSubtitle> */}
         <CardBody>
-          As of {date} {month} {year}, your balance is: {balance}
+          As of {date} {month} {year}, your balance is: ${userLoggedInBalance}
         </CardBody>
       </Card>
     </div>

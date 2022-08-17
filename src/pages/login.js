@@ -17,27 +17,28 @@ function Login() {
     navigate("/", { replace: true });
   }
 
+  console.log("userLoggedIn: " + userLoggedIn);
+  console.log("corresponding user: " + JSON.stringify(user[userLoggedIn]));
+
   function handleLogin({ name, email, password }) {
     let match = user.filter((u) => email == u.email && password === u.password);
-    console.log("match array:");
-    console.log(match);
-    console.log(match[0]);
+    // console.log("match array:");
+    // console.log(match);
+    // console.log(match[0]);
     if (match.length > 0) {
       const matchFunc = (element) => element == match[0];
       let index = user.findIndex(matchFunc);
       console.log("index of the match in user context: " + index);
       console.log("match!");
-      console.log(match[0].name);
+      // console.log(match[0].name);
       let userName = match[0].name;
-      console.log("userName: " + userName);
+      //      console.log("userName: " + userName);
       setSuccessMessage(`Welcome back ${userName}`);
-      console.log("user[index]: " + user[index]);
-      setUserLoggedIn(user[index]);
-
-      console.log("userLoggedIn: " + userLoggedIn);
+      //    console.log("user[index]: " + user[index]);
+      setUserLoggedIn(index);
     } else {
-      console.log("length: ", match.length);
-      console.log("account not found");
+      // console.log("length: ", match.length);
+      // console.log("account not found");
       // console.log("name ", name);
       // console.log("email ", email, element.email);
       // console.log("password ", password, element.password);

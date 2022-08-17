@@ -14,8 +14,13 @@ import {
 } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import { useUserContext, UserContext } from "./context";
+import { UserProvider } from "./context";
 
 function NaviBar() {
+  const { user, setUser, userLoggedIn, setUserLoggedIn } =
+    useUserContext(UserContext);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -61,6 +66,35 @@ function NaviBar() {
     tip.style.left = `${x}px`;
   }
 
+  function disabledMouseOver(e) {
+    var x = e.clientX;
+    let buttonText = e.target.innerText;
+    let message = "";
+    switch (buttonText) {
+      case "Log In":
+        message = "Already Logged In";
+        break;
+      case "Deposit":
+        message = "Log In to deposit funds";
+        break;
+      case "Withdraw":
+        message = "Log In to withdraw funds";
+        break;
+      case "Balance":
+        message = "Log In to see the balance";
+        break;
+    }
+    const createAcct = document.getElementById("root");
+
+    const tip = document.createElement("div");
+    tip.classList.add("tip-class");
+    const newContent = document.createTextNode(message);
+    tip.appendChild(newContent);
+    createAcct.appendChild(tip);
+    tip.style.top = "45px";
+    tip.style.left = `${x}px`;
+  }
+
   function clearTip() {
     const elementToClear = document.getElementsByClassName("tip-class");
     elementToClear[0].classList.add("tip-clear");
@@ -94,46 +128,102 @@ function NaviBar() {
                 Create Account
               </NavLink>
             </NavItem>
-            <NavItem className="navBarItem">
-              <NavLink
-                tag={Link}
-                to="/login"
-                onMouseOver={mouseOver}
-                onMouseLeave={clearTip}
-              >
-                Log In
-              </NavLink>
-            </NavItem>
-            <NavItem className="navBarItem">
-              <NavLink
-                tag={Link}
-                to="/deposit"
-                onMouseOver={mouseOver}
-                onMouseLeave={clearTip}
-              >
-                Deposit
-              </NavLink>
-            </NavItem>
-            <NavItem className="navBarItem">
-              <NavLink
-                tag={Link}
-                to="/withdraw"
-                onMouseOver={mouseOver}
-                onMouseLeave={clearTip}
-              >
-                Withdraw
-              </NavLink>
-            </NavItem>
-            <NavItem className="navBarItem">
-              <NavLink
-                tag={Link}
-                to="/balance"
-                onMouseOver={mouseOver}
-                onMouseLeave={clearTip}
-              >
-                Balance
-              </NavLink>
-            </NavItem>
+            {!userLoggedIn >= 0 ? (
+              <NavItem className="navBarItem">
+                <NavLink
+                  tag={Link}
+                  to="/login"
+                  onMouseOver={mouseOver}
+                  onMouseLeave={clearTip}
+                >
+                  Log In
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem className="disabledNav">
+                <NavLink
+                  //  tag={Link}
+                  // to="/login"
+                  onMouseOver={disabledMouseOver}
+                  onMouseLeave={clearTip}
+                  //  disabled
+                >
+                  Log In
+                </NavLink>
+              </NavItem>
+            )}
+            {userLoggedIn >= 0 ? (
+              <NavItem className="navBarItem">
+                <NavLink
+                  tag={Link}
+                  to="/deposit"
+                  onMouseOver={mouseOver}
+                  onMouseLeave={clearTip}
+                >
+                  Deposit
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem className="disabledNav">
+                <NavLink
+                  //  tag={Link}
+                  //  to="/deposit"
+                  onMouseOver={disabledMouseOver}
+                  onMouseLeave={clearTip}
+                  //  disabled
+                >
+                  Deposit
+                </NavLink>
+              </NavItem>
+            )}
+            {userLoggedIn >= 0 ? (
+              <NavItem className="navBarItem">
+                <NavLink
+                  tag={Link}
+                  to="/withdraw"
+                  onMouseOver={mouseOver}
+                  onMouseLeave={clearTip}
+                >
+                  Withdraw
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem className="disabledNav">
+                <NavLink
+                  // tag={Link}
+                  // to="/withdraw"
+                  onMouseOver={disabledMouseOver}
+                  onMouseLeave={clearTip}
+                  // disabled
+                >
+                  Withdraw
+                </NavLink>
+              </NavItem>
+            )}
+            {userLoggedIn >= 0 ? (
+              <NavItem className="navBarItem">
+                <NavLink
+                  tag={Link}
+                  to="/balance"
+                  onMouseOver={mouseOver}
+                  onMouseLeave={clearTip}
+                >
+                  Balance
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem className="disabledNav">
+                <NavLink
+                  // tag={Link}
+                  // to="/balance"
+                  onMouseOver={disabledMouseOver}
+                  onMouseLeave={clearTip}
+                  //disabled
+                >
+                  Balance
+                </NavLink>
+              </NavItem>
+            )}
             <NavItem className="navBarItem">
               <NavLink
                 tag={Link}

@@ -27,7 +27,7 @@ function Transaction({
   };
   const [buttonDisabled, setButtonDisabled] = React.useState(true);
 
-  console.log("error messg in Transaction: " + errorMessage);
+  //console.log("error messg in Transaction: " + errorMessage);
 
   return (
     <Card
