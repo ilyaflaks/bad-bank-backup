@@ -5,7 +5,9 @@ import { UserProvider } from "./context";
 import { useState, useEffect } from "react";
 
 function Withdraw() {
-  const { user, setUser } = useUserContext(UserContext);
+  //const { user, setUser } = useUserContext(UserContext);
+  const { user, setUser, userLoggedIn, setUserLoggedIn } =
+    useUserContext(UserContext);
   const [input, setInput] = useState(0);
   const [total, setTotal] = useState(user[0].balance);
   const [isError, setIsError] = useState(false);

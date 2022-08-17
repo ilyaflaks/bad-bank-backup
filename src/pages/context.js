@@ -13,10 +13,30 @@ export const UserProvider = ({ children }) => {
     { name: "abel", email: "abel@mit.edu", password: "secret01", balance: 100 },
     { name: "Peter", email: "peter@uic.edu", password: "qwertyui", balance: 5 },
   ]);
-
+  const [userLoggedIn, setUserLoggedIn] = useState();
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider
+      value={{ user, setUser, userLoggedIn, setUserLoggedIn }}
+    >
       {children}
     </UserContext.Provider>
   );
 };
+
+///BACKUP
+// export const UserContext = createContext();
+
+// export const useUserContext = () => useContext(UserContext);
+
+// export const UserProvider = ({ children }) => {
+//   const [user, setUser] = useState([
+//     { name: "abel", email: "abel@mit.edu", password: "secret01", balance: 100 },
+//     { name: "Peter", email: "peter@uic.edu", password: "qwertyui", balance: 5 },
+//   ]);
+
+//   return (
+//     <UserContext.Provider value={{ user, setUser }}>
+//       {children}
+//     </UserContext.Provider>
+//   );
+// };

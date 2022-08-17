@@ -8,7 +8,7 @@ function CreateAccount() {
 }
 
 function Account() {
-  const { user, setUser } = useUserContext();
+  const { user, setUser, userLoggedIn, setUserLoggedIn } = useUserContext();
   //console.log("In Account. user is: ", user);
 
   function handle(data) {

@@ -1,28 +1,23 @@
-import { useContext } from "react";
+import { useState } from "react";
 import { useUserContext, UserContext, UserProvider } from "./context";
-import { Yell } from "./context";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 
-function Alldata() {
-  return (
-    <div>
-      <UserAccountData />
-    </div>
-  );
-}
-
-function UserAccountData() {
+function Deleteme() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } = useUserContext();
-
-  const context = useContext(UserContext);
-  console.log("inside all data");
-  console.log(context);
-  console.log("ctxt.user: ", context.user);
-
   return (
     <div>
-      All data
-      <br />
+      <h2>DELETE ME!!!</h2>
+      <button onClick={() => setUserLoggedIn("YOU")}>SET USER LOGGED IN</button>
+      <h2>{userLoggedIn}</h2>
+
+      <button
+        onClick={() => {
+          setUser([...user, { name: "YOU", age: 12 }]);
+          console.log(JSON.stringify(user));
+        }}
+      >
+        SET USER
+      </button>
       {user.map((u, index) => {
         return (
           <Card key={index}>
@@ -41,4 +36,4 @@ function UserAccountData() {
   );
 }
 
-export default Alldata;
+export default Deleteme;

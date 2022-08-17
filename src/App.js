@@ -3,12 +3,21 @@ import Login from "./pages/login";
 import Homepage from "./pages/homepage";
 import Alldata from "./pages/alldata";
 import Balance from "./pages/balance";
-import Context from "./pages/context";
 import CreateAccount from "./pages/createaccount";
 import Deposit from "./pages/deposit";
 import Withdraw from "./pages/withdraw";
 import NaviBar from "./pages/naviBar";
-import { useUserContext, UserContext, UserProvider } from "./pages/context";
+import {
+  Context,
+  useUserContext,
+  UserContext,
+  UserProvider,
+} from "./pages/context";
+import {
+  LoggedInContext,
+  LoggedInContextProvider,
+  useLoggedInContext,
+} from "./pages/LoggedInContext";
 import { useContext, useEffect, useState } from "react";
 import {
   Card,
@@ -20,7 +29,7 @@ import {
   Nav,
   Button,
 } from "reactstrap";
-
+import UserBar from "./pages/UserBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -29,6 +38,7 @@ function App() {
       <Router>
         <UserProvider>
           <NaviBar />
+          <UserBar />
           <Routes>
             <Route index element={<Homepage />} />
             <Route path="/createaccount" element={<CreateAccount />} />

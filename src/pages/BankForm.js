@@ -54,6 +54,7 @@ function BankForm({
   secondButtonText,
   bool,
   loginError,
+  buttonFunc,
 }) {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
@@ -175,7 +176,7 @@ function BankForm({
               <br />
             </div>
           )}
-          {/* {loginError ? <div>Account not found</div> : <p> </p>} */}
+
           {show && buttonDisabled ? (
             <Button
               className="btn btn-dark"
@@ -195,29 +196,37 @@ function BankForm({
             </Button>
           ) : (
             <div>
-              <Button
-                type="submit"
-                className="btn btn-dark"
-                onClick={clearForm}
-              >
-                {successButton}
-              </Button>
               {bool ? (
-                <Button>
-                  <NavItem
-                    tag={Link}
-                    to="/login"
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                      margin: "2px",
-                    }}
+                <div>
+                  <Button
+                    type="submit"
+                    className="btn btn-dark"
+                    onClick={clearForm}
                   >
-                    {secondButtonText}
-                  </NavItem>
-                </Button>
+                    {successButton}
+                  </Button>
+                  <Button>
+                    <NavItem
+                      tag={Link}
+                      to="/login"
+                      style={{
+                        textDecoration: "none",
+                        color: "white",
+                        margin: "2px",
+                      }}
+                    >
+                      {secondButtonText}
+                    </NavItem>
+                  </Button>
+                </div>
               ) : (
-                <p> </p>
+                <Button
+                  type="submit"
+                  className="btn btn-dark"
+                  onClick={buttonFunc}
+                >
+                  {successButton}
+                </Button>
               )}
             </div>
           )}
