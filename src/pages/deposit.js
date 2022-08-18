@@ -3,15 +3,33 @@ import { useUserContext, UserContext } from "./context";
 import { Yell } from "./context";
 import { UserProvider } from "./context";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Deposit() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } =
     useUserContext(UserContext);
+
+  const navigate = useNavigate();
+
+  function navigateBack() {
+    navigate("/", { replace: true });
+  }
+
   const [input, setInput] = useState(0);
-  const [total, setTotal] = useState(user[userLoggedIn].balance); //will crash if no one logged in
+  const [total, setTotal] = useState(0);
+
+  //const [total, setTotal] = useState(user[userLoggedIn].balance); //will crash if no one logged in
   const [isError, setIsError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (userLoggedIn >= 0) {
+      setTotal(user[userLoggedIn].balance);
+    } else {
+      navigateBack();
+    }
+  }, []);
 
   function handleChange(e) {
     setIsError(false);
@@ -25,18 +43,6 @@ function Deposit() {
     let usersEmail = user[userLoggedIn].email;
     let usersPassword = user[userLoggedIn].password;
     let usersBalance = user[userLoggedIn].balance;
-
-    // if (userLoggedIn >= 0) {
-    //   console.log("inside handleDeposit, userLoggedIn: " + userLoggedIn);
-    //   console.log(user[userLoggedIn].name);
-    //   console.log(user[userLoggedIn].balance);
-    //   // usersName = userLoggedIn.name;
-    //   // usersEmail = userLoggedIn.email;
-    //   // usersPassword = userLoggedIn.password;
-    //   // usersBalance = userLoggedIn.balance;
-    //   setTotal(user[userLoggedIn].balance);
-    // }
-
     const numRegex2 = /^[0-9.]+$/;
     const numRegex4 = /[a-zA-Z!@#\$%\^\&*\)\(+=_-]+$/g;
 
