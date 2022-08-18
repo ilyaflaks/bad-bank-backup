@@ -48,8 +48,6 @@ function Withdraw() {
       !numRegex4.test(input) &&
       parseFloat(usersBalance) >= parseFloat(input)
     ) {
-      // console.log("passed withdraw validation");
-
       usersBalance = parseFloat(
         parseFloat(usersBalance) - parseFloat(input)
       ).toFixed(2);
@@ -80,18 +78,18 @@ function Withdraw() {
       setIsError(true);
       let message = "";
       if (parseFloat(input) < 0) {
-        console.log("input is a negative #");
+        // console.log("input is a negative #");
         message = "- only positive numbers allowed";
       } else if (numRegex4.test(input)) {
-        console.log("input has special chars");
+        //   console.log("input has special chars");
 
         message = "- no letters or special characters allowed";
       } else if (parseFloat(input) > parseFloat(usersBalance)) {
-        console.log(
-          "Overdraft! input: " + input + " ",
-          "usersBalance: ",
-          usersBalance
-        );
+        // console.log(
+        //   "Overdraft! input: " + input + " ",
+        //   "usersBalance: ",
+        //   usersBalance
+        // );
 
         message = "- this transaction would overdraft your account";
       }

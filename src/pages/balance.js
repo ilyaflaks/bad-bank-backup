@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
-import { useUserContext, UserContext } from "./context";
-
-import { Yell } from "./context";
-import { UserProvider } from "./context";
+import { useUserContext, UserContext, UserProvider } from "./context";
 
 function Balance() {
   const d = new Date();
@@ -27,9 +24,7 @@ function Balance() {
 
   const { user, setUser, userLoggedIn, setUserLoggedIn } =
     useUserContext(UserContext);
-  //  console.log("we are in balance, user from ctxt is: " + user);
-  ///////
-  console.log("userLoggedIn: " + userLoggedIn);
+  //console.log("userLoggedIn: " + userLoggedIn);
   let userLoggedInName = "";
   let userLoggedInEmail = "";
   let userLoggedInPassword = "";
@@ -48,12 +43,7 @@ function Balance() {
       userLoggedInPassword
     );
   }
-  // const { userLoggedIn, setUserLoggedIn } = useLoggedInContext(LoggedInContext);
-  // console.log("userLoggedIn: ", userLoggedIn);
 
-  ///////
-  let name = user[0].name;
-  let balance = user[0].balance;
   return (
     <div>
       <Card

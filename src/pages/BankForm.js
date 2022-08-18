@@ -16,6 +16,12 @@ let disabledButton = {
   cursor: "not-allowed",
 };
 
+let logOutButtonStyle = {
+  textDecoration: "none",
+  color: "white",
+  margin: "2px",
+};
+
 function validateName(name) {
   let regex = /^[a-zA-Z\s]*$/g;
   if (name.length < 2 || regex.test(name) == false) {
@@ -46,7 +52,6 @@ function validatePassword(password) {
 }
 
 function BankForm({
-  bgcolor,
   label,
   handle,
   successButton,
@@ -57,7 +62,7 @@ function BankForm({
   buttonFunc,
 }) {
   const [show, setShow] = React.useState(true);
-  const [status, setStatus] = React.useState("");
+  // const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -72,14 +77,6 @@ function BankForm({
   function clearError() {
     setError({ nameError: "", emailError: "", passwordError: "" });
   }
-  // function validate(field, label) {
-  //   if (!field) {
-  //     setStatus("Error: " + label);
-  //     setTimeout(() => setStatus(""), 3000);
-  //     return false;
-  //   }
-  //   return true;
-  // }
 
   function handleCreate() {
     const isValidName = validateName(name);
@@ -108,131 +105,126 @@ function BankForm({
   }
 
   return (
-    <div>
-      <Card
-        style={{
-          width: "28rem",
-        }}
-      >
-        <CardBody>
-          <CardTitle tag="h5">{label}</CardTitle>
-          {show ? (
-            <CardSubtitle className="mb-2 text-muted" tag="h6">
-              Please fill out the form below
-            </CardSubtitle>
-          ) : (
-            <h3> </h3>
-          )}
-          {show ? (
-            <div className="mb-3">
-              Name
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="name"
-                placeholder="Enter Name"
-                value={name}
-                onChange={(e) => {
-                  setName(e.currentTarget.value);
-                  setButtonDisabled(false);
-                  clearError();
-                }}
-              />
-              <div style={{ color: "red" }}>{errors.nameError}</div>
-              Email Address
-              <br />
-              <input
-                type="input"
-                className="form-control"
-                id="email"
-                placeholder="Enter Email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.currentTarget.value);
-                  setButtonDisabled(false);
-                  clearError();
-                }}
-              />
-              <div style={{ color: "red" }}>{errors.emailError}</div>
-              Password <br />
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                placeholder="Enter Password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.currentTarget.value);
-                  setButtonDisabled(false);
-                  clearError();
-                }}
-              />
-              <div style={{ color: "red" }}>{errors.passwordError}</div>
-            </div>
-          ) : (
-            <div>
-              <h3>{successMessage}</h3>
-              <br />
-            </div>
-          )}
+    <Card
+      style={{
+        width: "28rem",
+      }}
+    >
+      <CardBody>
+        <CardTitle tag="h5">{label}</CardTitle>
+        {show ? (
+          <CardSubtitle className="mb-2 text-muted" tag="h6">
+            Please fill out the form below
+          </CardSubtitle>
+        ) : (
+          <h3> </h3>
+        )}
+        {show ? (
+          <div className="mb-3">
+            Name
+            <br />
+            <input
+              type="input"
+              className="form-control"
+              id="name"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => {
+                setName(e.currentTarget.value);
+                setButtonDisabled(false);
+                clearError();
+              }}
+            />
+            <div style={{ color: "red" }}>{errors.nameError}</div>
+            Email Address
+            <br />
+            <input
+              type="input"
+              className="form-control"
+              id="email"
+              placeholder="Enter Email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.currentTarget.value);
+                setButtonDisabled(false);
+                clearError();
+              }}
+            />
+            <div style={{ color: "red" }}>{errors.emailError}</div>
+            Password <br />
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.currentTarget.value);
+                setButtonDisabled(false);
+                clearError();
+              }}
+            />
+            <div style={{ color: "red" }}>{errors.passwordError}</div>
+          </div>
+        ) : (
+          <div>
+            <h3>{successMessage}</h3>
+            <br />
+          </div>
+        )}
+        {/* above is the success scenario for inputs and the title*/}
 
-          {show && buttonDisabled ? (
-            <Button
-              className="btn btn-dark"
-              type="submit"
-              onClick={handleCreate}
-              style={disabledButton}
-            >
-              {label}
+        {show && buttonDisabled ? (
+          <Button
+            className="btn btn-dark"
+            type="submit"
+            onClick={handleCreate}
+            style={disabledButton}
+          >
+            {label}
+          </Button>
+        ) : show && !buttonDisabled ? (
+          //in createaccount, label is createaccount, in login it's "Log In"
+          <Button type="submit" className="btn btn-dark" onClick={handleCreate}>
+            {label}
+          </Button>
+        ) : (
+          <div></div>
+        )}
+        {/* bool is only passed from createaccount */}
+        {/* show is set to false when the validation passes */}
+        {/* why do both createaccount and login have two buttons when show is true? */}
+        {/* they should only appear after success = !show */}
+        {/* create account has "add another account on load", on the right that's successButton passed from parent, default state */}
+        {/* login has "log out" on load, on the right that's successButton passed from parent */}
+
+        {!show && bool ? (
+          <div>
+            <Button type="submit" className="btn btn-dark" onClick={clearForm}>
+              {successButton}
             </Button>
-          ) : show && !buttonDisabled ? (
-            <Button
-              type="submit"
-              className="btn btn-dark"
-              onClick={handleCreate}
-            >
-              {label}
+            <Button>
+              <NavItem tag={Link} to="/login" style={logOutButtonStyle}>
+                {/* secondButtonText is only passed on createaccount and it's "Log In" */}
+                {secondButtonText}
+              </NavItem>
             </Button>
-          ) : (
-            <div>
-              {bool ? (
-                <div>
-                  <Button
-                    type="submit"
-                    className="btn btn-dark"
-                    onClick={clearForm}
-                  >
-                    {successButton}
-                  </Button>
-                  <Button>
-                    <NavItem
-                      tag={Link}
-                      to="/login"
-                      style={{
-                        textDecoration: "none",
-                        color: "white",
-                        margin: "2px",
-                      }}
-                    >
-                      {secondButtonText}
-                    </NavItem>
-                  </Button>
-                </div>
-              ) : (
-                <Button
-                  type="submit"
-                  className="btn btn-dark"
-                  onClick={buttonFunc}
-                >
-                  {successButton}
-                </Button>
-              )}
-            </div>
-          )}
-        </CardBody>
-      </Card>
-    </div>
+          </div>
+        ) : //                  {/* otherwise if it's a valid login show success buttons, buttonFunc is logout */}
+        !show && !bool && !loginError ? (
+          <Button type="submit" className="btn btn-dark" onClick={buttonFunc}>
+            {successButton}
+          </Button>
+        ) : !show && !bool && loginError ? (
+          <Button type="submit" className="btn btn-dark" onClick={clearForm}>
+            {successButton}
+          </Button>
+        ) : (
+          <p> </p>
+          //{/* otherwise try again */}
+        )}
+      </CardBody>
+    </Card>
   );
 }
 

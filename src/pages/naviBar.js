@@ -128,25 +128,22 @@ function NaviBar() {
                 Create Account
               </NavLink>
             </NavItem>
-            {!userLoggedIn >= 0 ? (
-              <NavItem className="navBarItem">
+            {userLoggedIn >= 0 ? (
+              <NavItem className="disabledNav">
                 <NavLink
-                  tag={Link}
-                  to="/login"
-                  onMouseOver={mouseOver}
+                  onMouseOver={disabledMouseOver}
                   onMouseLeave={clearTip}
                 >
                   Log In
                 </NavLink>
               </NavItem>
             ) : (
-              <NavItem className="disabledNav">
+              <NavItem className="navBarItem">
                 <NavLink
-                  //  tag={Link}
-                  // to="/login"
-                  onMouseOver={disabledMouseOver}
+                  tag={Link}
+                  to="/login"
+                  onMouseOver={mouseOver}
                   onMouseLeave={clearTip}
-                  //  disabled
                 >
                   Log In
                 </NavLink>

@@ -17,8 +17,8 @@ function Login() {
     navigate("/", { replace: true });
   }
 
-  console.log("userLoggedIn: " + userLoggedIn);
-  console.log("corresponding user: " + JSON.stringify(user[userLoggedIn]));
+  // console.log("userLoggedIn: " + userLoggedIn);
+  // console.log("corresponding user: " + JSON.stringify(user[userLoggedIn]));
 
   function handleLogin({ name, email, password }) {
     let match = user.filter((u) => email == u.email && password === u.password);
@@ -28,8 +28,8 @@ function Login() {
     if (match.length > 0) {
       const matchFunc = (element) => element == match[0];
       let index = user.findIndex(matchFunc);
-      console.log("index of the match in user context: " + index);
-      console.log("match!");
+      // console.log("index of the match in user context: " + index);
+      // console.log("match!");
       // console.log(match[0].name);
       let userName = match[0].name;
       //      console.log("userName: " + userName);
@@ -37,12 +37,6 @@ function Login() {
       //    console.log("user[index]: " + user[index]);
       setUserLoggedIn(index);
     } else {
-      // console.log("length: ", match.length);
-      // console.log("account not found");
-      // console.log("name ", name);
-      // console.log("email ", email, element.email);
-      // console.log("password ", password, element.password);
-
       setLoginError(true);
       setSuccessMessage("Account not found");
       setSuccessButton("Try Again");
@@ -50,23 +44,11 @@ function Login() {
   }
 
   function logOut() {
-    setUserLoggedIn(null);
+    setUserLoggedIn();
     setSuccessMessage("We hope to see you soon!");
     setSuccessButton("Bye");
     setTimeout(navigateBack, 5000);
   }
-
-  // let loggedInName = "";
-  // let loggedInEmail = "";
-  // let loggedInPassword = "";
-  // if (userLoggedIn) {
-  //   loggedInName = userLoggedIn.name;
-  //   loggedInEmail = userLoggedIn.email;
-  //   loggedInPassword = userLoggedIn.password;
-  //   console.log("loggedInName " + loggedInName);
-  //   console.log("loggedInEmail " + loggedInEmail);
-  //   console.log("loggedInPassword " + loggedInPassword);
-  // }
 
   return (
     <div>
@@ -78,16 +60,7 @@ function Login() {
         successMessage={successMessage}
         loginError={loginError}
         buttonFunc={logOut}
-        //secondButtonText="Log Out"
       />
-      {/* <h3>User Logged in:</h3>
-      {userLoggedIn ? (
-        <div>
-          {loggedInName} {loggedInEmail} {loggedInPassword}
-        </div>
-      ) : (
-        <h3> </h3>
-      )} */}
     </div>
   );
 }

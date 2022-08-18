@@ -32,6 +32,8 @@ function UserBar() {
         <div></div>
       </div>
     );
+  } else {
+    return <div></div>;
   }
 }
 

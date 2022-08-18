@@ -17,8 +17,6 @@ function Deposit() {
 
   const [input, setInput] = useState(0);
   const [total, setTotal] = useState(0);
-
-  //const [total, setTotal] = useState(user[userLoggedIn].balance); //will crash if no one logged in
   const [isError, setIsError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -65,10 +63,6 @@ function Deposit() {
 
       console.log("newObj: ");
       console.log(JSON.stringify(newObj));
-      //      setUserLoggedIn(newObj); //userLoggedIn should change every time user changes
-      // console.log("userLoggedIn");
-
-      // console.log(userLoggedIn);
 
       let newArray = user;
       const matcherFunction = (element) =>
@@ -94,8 +88,6 @@ function Deposit() {
       }
       setErrorMessage(message);
     }
-
-    //    setTotal(user[0].balance);
     setTotal(usersBalance);
   }
 
