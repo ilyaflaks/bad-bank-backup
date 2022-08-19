@@ -106,9 +106,10 @@ function BankForm({
 
   return (
     <Card
-      style={{
-        width: "28rem",
-      }}
+      className="bankForm"
+      // style={{
+      //   width: "28rem",
+      // }}
     >
       <CardBody>
         <CardTitle tag="h5">{label}</CardTitle>

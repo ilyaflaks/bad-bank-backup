@@ -12,14 +12,26 @@ function UserBar() {
     navigate("/", { replace: true });
   }
 
+  let userBar = {
+    display: "flex",
+    alignItems: "center",
+    gap: "20px",
+    justifyContent: "end",
+  };
+
+  let avatarStyle = {
+    width: "50px",
+    height: "50px",
+  };
+
   let userLoggedInName = "";
 
   if (userLoggedIn >= 0) {
     userLoggedInName = user[userLoggedIn].name;
     return (
-      <div className="userBar">
+      <div className="userBar" style={userBar}>
         <h2>{userLoggedInName}</h2>
-        <img alt="Default avatar" src={avatar} className="avatar" />
+        <img alt="Default avatar" src={avatar} style={avatarStyle} />
         <Button
           onClick={() => {
             userLoggedInName = "";

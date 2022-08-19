@@ -46,11 +46,7 @@ function Balance() {
 
   return (
     <div>
-      <Card
-        style={{
-          width: "28rem",
-        }}
-      >
+      <Card className="balance">
         <CardTitle>Balance</CardTitle>
         {/* <CardSubtitle>{userLoggedInName}</CardSubtitle> */}
         <CardBody>

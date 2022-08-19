@@ -1,13 +1,6 @@
-/* #root {
-  background-color: aqua;
-} */
 .cardt {
   background-color: aqua;
 }
-/* 
-#root {
-  background-color: bisque;
-} */
 
 button {
   margin: 2px;
@@ -44,7 +37,6 @@ button {
 .userBar {
   display: flex;
   gap: 15px;
-  /* align-items: flex-end; */
   justify-content: end;
 }
 
@@ -52,11 +44,149 @@ button {
   width: 50px;
   height: 50px;
 }
+.homepage {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 80px;
+  /* margin: 30px 30px 200px 200px; */
+  margin: auto;
+  width: 90%;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "main photo photo"
+    "promo promo promo"
+    "footer footer footer";
+}
 
-/* 
+.landingCard {
+  padding: 20px 20px 20px 20px;
+  width: 21em;
+  grid-area: main;
+}
 
+.bankDescription {
+  font-size: 1.2em;
+}
+.landingPicture {
+  margin: 0px 0px 00px 30px;
+  grid-area: photo;
+  width: 690px;
+  border: solid #c8c8c8;
+  border-radius: 5px;
+}
 
+.promotion {
+  grid-area: promo;
+  margin: 50px 0px 0px 0px;
+  padding: 30px 50px 45px 30px;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  border: solid #c8c8c8;
+  border-radius: 5px;
+  color: #495057;
+}
 
-#createaccount:hover {
-  background-color: #e2e2e2;
-} */
+.promotion-text {
+  margin: 25px 10px 10px 10px;
+}
+
+.signupPic {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.footer {
+  grid-area: footer;
+  margin: auto;
+  margin-top: 120px;
+  width: 85%;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 2.5em;
+  padding: 20px 10px 10px 10px;
+  background-color: #495057;
+  color: #f8f8f8;
+  border-radius: 3px;
+}
+
+.bankForm {
+  width: 28em;
+  margin: 25px 10px 10px 25px;
+  padding: 10px 20px 10px 20px;
+}
+.allDataHeader {
+  font-size: 2em;
+  margin: 20px 10px 10px 20px;
+}
+
+.alldataCard {
+  width: 50%;
+  margin: 20px 10px 10px 25px;
+  padding: 10px 20px 10px 20px;
+}
+
+.transaction {
+  width: 28rem;
+  margin: 25px 10px 10px 25px;
+  padding: 10px 20px 10px 20px;
+}
+
+.balance {
+  width: 28rem;
+  margin: 25px 10px 10px 25px;
+  padding: 10px 20px 10px 20px;
+}
+
+/* Mobile Devices */
+@media (max-width: 500px) {
+  .homepage {
+    grid-template-columns: 350px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "main"
+      "photo"
+      "promo"
+      "footer";
+  }
+
+  .landingPicture {
+    width: 340px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .promotion {
+    flex-direction: column;
+  }
+  .promotion-text {
+    font-size: 0.8em;
+  }
+  .signupPic {
+    margin-top: 15px;
+  }
+  .bankForm {
+    width: 90%;
+    margin: 25px 10px 10px 15px;
+  }
+  .alldataCard {
+    width: 90%;
+    margin: 25px 10px 10px 15px;
+  }
+  .transaction {
+    width: 90%;
+    margin: 25px 10px 10px 15px;
+  }
+  .balance {
+    width: 90%;
+    margin: 25px 10px 10px 15px;
+  }
+  .footer {
+    width: 90%;
+    margin-top: 85px;
+    padding: 0px 0px 0px 0px;
+    font-size: 1em;
+  }
+}

@@ -31,9 +31,10 @@ function Transaction({
 
   return (
     <Card
-      style={{
-        width: "28rem",
-      }}
+      className="transaction"
+      // style={{
+      //   width: "28rem",
+      // }}
     >
       <Form onSubmit={handleTransact}>
         <FormGroup>

@@ -31,6 +31,7 @@ import {
 } from "reactstrap";
 import UserBar from "./pages/UserBar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles.css";
 
 function App() {
   return (

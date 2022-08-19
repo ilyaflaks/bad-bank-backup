@@ -21,11 +21,11 @@ function UserAccountData() {
 
   return (
     <div>
-      All data
+      <div className="allDataHeader">All data</div>
       <br />
       {user.map((u, index) => {
         return (
-          <Card key={index}>
+          <Card key={index} className="alldataCard">
             <CardTitle>{u.name}</CardTitle>
             <CardBody>
               Email: {u.email}
