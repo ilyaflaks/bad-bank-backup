@@ -1,4 +1,4 @@
-import BankForm from "./BankForm";
+import BankForm from "../components/BankForm";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserContext, UserContext, UserProvider } from "./context";

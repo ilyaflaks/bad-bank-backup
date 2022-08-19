@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
-import { useUserContext, UserContext, UserProvider } from "./context";
+import { useUserContext, UserContext, UserProvider } from "../pages/context";
 import { useNavigate } from "react-router-dom";
 import avatar from "../avatar.png";
 

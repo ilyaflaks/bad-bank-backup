@@ -1,4 +1,4 @@
-import Transaction from "./Transaction";
+import Transaction from "../components/Transaction";
 import { useUserContext, UserContext } from "./context";
 import { UserProvider } from "./context";
 import { useState, useEffect } from "react";

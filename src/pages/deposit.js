@@ -1,4 +1,4 @@
-import Transaction from "./Transaction";
+import Transaction from "../components/Transaction";
 import { useUserContext, UserContext } from "./context";
 import { Yell } from "./context";
 import { UserProvider } from "./context";

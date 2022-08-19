@@ -1,4 +1,4 @@
-import BankForm from "./BankForm";
+import BankForm from "../components/BankForm";
 import { useContext } from "react";
 import { useUserContext, UserContext } from "./context";
 import { UserProvider } from "./context";

@@ -14,8 +14,7 @@ import {
 } from "reactstrap";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
-import { useUserContext, UserContext } from "./context";
-import { UserProvider } from "./context";
+import { useUserContext, UserContext, UserProvider } from "../pages/context";
 
 function NaviBar() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } =

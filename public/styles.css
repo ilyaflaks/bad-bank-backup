@@ -218,6 +218,19 @@ button {
   .withdrawPage {
     gap: 0px;
   }
+
+  .landingPicture {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .promotion {
+    width: 90vw;
+  }
+
+  .footer {
+    width: 90vw;
+    margin: 0px 0px 0px 0px;
+  }
 }
 /* Mobile Devices */
 @media (max-width: 500px) {
