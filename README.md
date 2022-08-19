@@ -1,70 +1,21 @@
 # Bad Bank front end Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app was created as a part of the MIT xPro Professional Certificate in Coding course. The app has an appearance of a banking app but no real money is involved. 
 
-## Available Scripts
+### How to use
+You have access to Create Account, Login and All Data pages from the landing page. Once you create an account and log in you will be granted access to Withdrawal, Deposit and Balance pages as well. 
+Create Account Login have validations in place to prevent invalid names, emails or password and Withdrawal and Deposit have validations to only allow positive numbers and no letter or special characters. 
 
-In the project directory, you can run:
+The page is deployed through an AWS at the follwing address:
+http://ilya-flaks-badbank.s3-website-us-west-1.amazonaws.com/
 
-### `npm start`
+You can also clone this repo, open the Terminal, cd into the folder, enter "npm install" to install the node modules and then "npm start" to start the app on your machine. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Challenges
+The biggest challenge was to simulate a user experinece with Context. Every part of the app subscribes to the context that holds 1) the info on all of the accounts and 2) whether or no a user is logged in. The second functionality was achieved by creating another state inside the context called userLoggedIn which is an index for the array of all users. 
+A smaller challenge was creating the hover effect for the nav bar to display an explanation for each page. This part needs some work because each onMouseEnter event creates a child in the DOM tree that is not cleaned up with the onMouseLeave event. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Changes to the starter code
+Some minimal design changes were implemented to have more whitespace on the page and pictures of buildings to go with the professional looking grey theme. The log in functionality was optional so that was no in the starter code. This app is created with "npx create-react-app" as opposed to the standalone version and most of the code had to be written from scratch. 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT License
