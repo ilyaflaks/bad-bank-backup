@@ -3,6 +3,7 @@ import { useUserContext, UserContext } from "./context";
 import { UserProvider } from "./context";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import bankny2 from "../bankny2.png";
 
 function Withdraw() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } =
@@ -101,7 +102,7 @@ function Withdraw() {
   }
 
   return (
-    <div>
+    <div className="withdrawPage">
       <Transaction
         label="Withdraw"
         handleChange={handleChange}
@@ -111,6 +112,13 @@ function Withdraw() {
         success={success}
         errorMessage={errorMessage}
       />
+      <div>
+        <img
+          className="withdrawBanner"
+          alt="Photo of a Flat Iron building in New York City. Caption says 'Apply for a loan with BadBank' "
+          src={bankny2}
+        />
+      </div>
     </div>
   );
 }

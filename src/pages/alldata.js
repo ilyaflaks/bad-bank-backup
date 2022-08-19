@@ -15,9 +15,9 @@ function UserAccountData() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } = useUserContext();
 
   const context = useContext(UserContext);
-  console.log("inside all data");
-  console.log(context);
-  console.log("ctxt.user: ", context.user);
+  // console.log("inside all data");
+  // console.log(context);
+  // console.log("ctxt.user: ", context.user);
 
   return (
     <div>

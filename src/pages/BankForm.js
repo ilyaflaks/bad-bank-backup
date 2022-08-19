@@ -25,7 +25,7 @@ let logOutButtonStyle = {
 function validateName(name) {
   let regex = /^[a-zA-Z\s]*$/g;
   if (name.length < 2 || regex.test(name) == false) {
-    console.log("bad name");
+    // console.log("bad name");
     return false;
   } else {
     return true;
@@ -35,7 +35,7 @@ function validateName(name) {
 function validateEmail(email) {
   const regex2 = /\S@\S/;
   if (!regex2.test(email) || email.length < 3) {
-    console.log("bad email");
+    // console.log("bad email");
     return false;
   } else {
     return true;
@@ -44,7 +44,7 @@ function validateEmail(email) {
 
 function validatePassword(password) {
   if (password.length < 8) {
-    console.log("bad pw");
+    // console.log("bad pw");
     return false;
   } else {
     return true;

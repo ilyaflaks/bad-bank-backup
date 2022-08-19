@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserContext, UserContext, UserProvider } from "./context";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import smartphoneapp from "../smartphoneapp.png";
 
 function Login() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } = useUserContext();
@@ -51,7 +52,7 @@ function Login() {
   }
 
   return (
-    <div>
+    <div className="loginPage">
       <BankForm
         bgcolor="primary"
         label="Log In"
@@ -61,6 +62,13 @@ function Login() {
         loginError={loginError}
         buttonFunc={logOut}
       />
+      <div>
+        <img
+          className="smartApp"
+          alt="Photo of an app on a smart phone"
+          src={smartphoneapp}
+        />
+      </div>
     </div>
   );
 }

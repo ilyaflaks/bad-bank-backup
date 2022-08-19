@@ -4,6 +4,7 @@ import { Yell } from "./context";
 import { UserProvider } from "./context";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import bankdowntown from "../bankdowntown2.png";
 
 function Deposit() {
   const { user, setUser, userLoggedIn, setUserLoggedIn } =
@@ -92,7 +93,7 @@ function Deposit() {
   }
 
   return (
-    <div>
+    <div className="depositPage">
       <Transaction
         label="Deposit"
         handleChange={handleChange}
@@ -101,7 +102,14 @@ function Deposit() {
         isError={isError}
         success={success}
         errorMessage={errorMessage}
-      />
+      />{" "}
+      <div>
+        <img
+          className="depositBanner"
+          alt="Photo of a building in Los Angeles. Caption says 'Start investing with BadBank' "
+          src={bankdowntown}
+        />
+      </div>
     </div>
   );
 }

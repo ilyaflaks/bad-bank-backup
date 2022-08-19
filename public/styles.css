@@ -94,7 +94,7 @@ button {
 }
 
 .signupPic {
-  width: 200px;
+  width: 250px;
   height: 200px;
   border-radius: 5px;
 }
@@ -141,6 +141,84 @@ button {
   padding: 10px 20px 10px 20px;
 }
 
+.loginPage {
+  display: flex;
+}
+
+.smartApp {
+  padding-left: 100px;
+  width: 800px;
+  border-radius: 5px;
+}
+.smartApp:hover {
+  cursor: pointer;
+}
+
+.createAccount {
+  display: flex;
+  gap: 80px;
+}
+
+.createAcctImg {
+  margin-top: 25px;
+  width: 600px;
+  border-radius: 5px;
+}
+
+.createAcctImg:hover {
+  cursor: pointer;
+}
+
+.depositPage {
+  display: flex;
+  gap: 120px;
+}
+
+.depositBanner {
+  margin-top: 25px;
+  width: 580px;
+  border-radius: 5px;
+}
+
+.depositBanner:hover {
+  cursor: pointer;
+}
+
+.withdrawPage {
+  display: flex;
+  gap: 120px;
+}
+.withdrawBanner {
+  margin-top: 25px;
+  width: 580px;
+  border-radius: 5px;
+}
+
+.withdrawBanner:hover {
+  cursor: pointer;
+}
+
+/* Smaller windows */
+@media (max-width: 1200px) {
+  .smartApp {
+    padding-left: 0px;
+  }
+
+  .createAcctImg {
+    padding-left: 0px;
+  }
+
+  .createAccount {
+    gap: 0px;
+  }
+
+  .depositPage {
+    gap: 0px;
+  }
+  .withdrawPage {
+    gap: 0px;
+  }
+}
 /* Mobile Devices */
 @media (max-width: 500px) {
   .homepage {
@@ -188,5 +266,39 @@ button {
     margin-top: 85px;
     padding: 0px 0px 0px 0px;
     font-size: 1em;
+  }
+  .loginPage {
+    display: inline-block;
+  }
+  .smartApp {
+    width: 380px;
+    padding-top: 50px;
+    padding-left: 0px;
+  }
+  .createAccount {
+    display: inline-block;
+  }
+  .createAcctImg {
+    width: 380px;
+    padding-top: 50px;
+    padding-left: 10px;
+  }
+
+  .depositPage {
+    display: inline-block;
+  }
+  .depositBanner {
+    width: 380px;
+    padding-top: 50px;
+    padding-left: 10px;
+  }
+
+  .withdrawPage {
+    display: inline-block;
+  }
+  .withdrawBanner {
+    width: 380px;
+    padding-top: 50px;
+    padding-left: 10px;
   }
 }

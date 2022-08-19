@@ -6,7 +6,7 @@ import {
   CardSubtitle,
   CardText,
 } from "reactstrap";
-import bank from "../bank.png";
+import bank from "../badbank.PNG";
 import landing1 from "../landing1.png";
 import landing2 from "../landing2.png";
 import landing3 from "../landing3.png";
